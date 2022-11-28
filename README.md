@@ -10,7 +10,7 @@ LaTeX is most likely the best way to write and format any kind of text that has 
 ## Usage
 This collection of snippets is designed to work with the VSCode extension [HyperSnips](https://github.com/draivin/hsnips). You must download the snippets and in the settings of HyperSnips specifiy that it should use the file ```latex.hsnips```. 
 
-## Examples 
+## Example
 
 ```
 snippet dm "Autoexpand display math" Ab
