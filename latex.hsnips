@@ -1,0 +1,165 @@
+# == Fractions == #
+snippet // "Fraction simple" iA
+\frac{$1}{$2}$0
+endsnippet
+
+snippet `((\d+)|(\d*)(\\)?([A-Za-z]+)((\^|_)(\{\d+\}|\d))*)/` "Fraction no ()" iA
+\frac{``rv = m[1]``}{$1}$0
+endsnippet
+
+priority 200
+snippet `(?<=\s)(\\mu|\\alpha|\\sigma|\\rho|\\beta|\\gamma|\\delta|\\zeta|\\eta|\\varepsilon|\\theta|\\iota|\\kappa|\\vartheta|\\lambda|\\nu|\\pi|\\rho|\\tau|\\upsilon|\\phi|\\chi|\\psi|\\omega|\\Gamma|\\Delta|\\Theta|\\Lambda|\\Xi|\\Pi|\\Sigma|\\Upsilon|\\Phi|\\Psi|\\Omega|[A-Za-z]{1,2})?(_[A-Za-z0-9]|_\{[^}]+\})?(\^[A-Za-z0-9]|\^\{[^}]+\})?(_[A-Za-z0-9]|_\{[^}]+\})?(\([^)]+\))(_[A-Za-z0-9]|_\{[^}]+\})?(\^[A-Za-z0-9]|\^\{[^}]+\})?(_[A-Za-z0-9]|_\{[^}]+\})?\/` "Fraction with ()" iAm
+\\frac{``rv = m.slice(1, m.length).join('')``}{$1}$2
+endsnippet
+
+# == ``rv = "\\frac{" + m.slice(1, m.length).join('') + "}{$1}"`` ==
+
+# == Autoexpands == #
+
+snippet \[ "Autoexpand newline equation" A
+\[$1.\] $0
+endsnippet
+
+snippet dm "Autoexpand display math" Ab
+\[$1.\] $0
+endsnippet
+
+
+snippet $ "Autoexpand inline equation" Ai
+$$1$ $2
+endsnippet
+
+context math(context)
+snippet \{ "proper curly brackets" Ai
+\left\\{$1\right\\}$2
+endsnippet
+
+context math(context)
+snippet () "proper brackets" Ai
+\left($1\right
+endsnippet
+
+context math(context)
+snippet int "Integral" Ai
+\int_{$1}^{$2}$3
+endsnippet
+
+context math(context)
+snippet cases "Cases" Ai
+\begin{cases}
+$1 \\
+$2
+\end{cases}
+endsnippet
+
+# == Utility == 
+
+snippet today "Gives you the current date!"
+``rv = new Date().toDateString()``
+endsnippet
+
+snippet filename "Current Filename"
+``rv = require('path').basename(path)``
+endsnippet
+
+snippet article "Setup std. article" 
+\documentclass[12pt]{article}
+\onehalfspacing
+
+\title{$1}
+\author{$2}
+\begin{document}
+\maketitle{}
+
+\section{Introduction}
+$3
+
+\end{document}
+endsnippet
+
+snippet green "Sets textcolor green" iA
+\textcolor{ForestGreen}{$1}$2
+endsnippet
+
+snippet bold "Sets bold" iA
+\textbf{$1}
+endsnippet
+
+# == Math Operations ==
+
+global
+function math(context) {
+    return context.scopes.some(s => s.startsWith("meta.math"));
+}
+endglobal
+
+context math(context)
+snippet inv "inverse" Ai
+^{-1}
+endsnippet
+
+context math(context)
+snippet vert "Verticals of vector" i
+|$1|
+endsnippet
+
+context math(context)
+snippet times "convert to \times" Ai
+\times 
+endsnippet
+
+context math(context)
+snippet begin "initiates begin and end" Ai
+\begin{$1}
+$2
+\end{$1} 
+endsnippet
+
+context math(context)
+snippet 2space "Rewrites to 2-space" Ai
+\R^2 
+endsnippet
+
+context math(context)
+snippet 3space "Rewrites to 3-space" Ai
+\R^3
+endsnippet
+
+context math(context)
+snippet nspace "Rewrites to 3-space" Ai
+\R^n
+endsnippet
+
+context math(context)
+snippet star "star" iAm
+^{*}
+endsnippet
+
+snippet != "equals" iA
+\neq 
+endsnippet
+
+context math(context)
+snippet ceil "ceil" iA
+\left\lceil $1 \right\rceil $0
+endsnippet
+
+context math(context)
+snippet floor "floor" iA
+\left\lfloor $1 \right\rfloor$0
+endsnippet
+
+context math(context)
+snippet sq "\sqrt{}" iA
+\sqrt{$1}$0
+endsnippet
+
+context math(context)
+snippet __ "subscript" iA
+_{$1}$0
+endsnippet
+
+context math(context)
+snippet lra "\Leftrightarrow" iA
+\Leftrightarrow
+endsnippet
