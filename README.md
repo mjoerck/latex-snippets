@@ -1,7 +1,7 @@
 ![badge](https://img.shields.io/github/license/mjoerck/latex-snippets)
 
 # **Snippets**
-This is my collection of snippets for LaTeX-editing in Visual Studio Code
+This is my collection of snippets for LaTeX-editing in Visual Studio Code.
 
 ## Description
 LaTeX is most likely the best way to write and format any kind of text that has got math in it. This repository is for snippets that speed up my workflow and automate a lot of typing. 
