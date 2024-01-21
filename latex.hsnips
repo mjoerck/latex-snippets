@@ -1,0 +1,176 @@
+# === contexts ===
+
+# setup math context, source: https://marketplace.visualstudio.com/items?itemName=draivin.hsnips
+global
+function math(context) {
+    return context.scopes.some(s => s.startsWith("meta.math")) && !context.scopes.some(s => s.startsWith("comment") || s.startsWith("meta.text.normal.tex"));
+}
+endglobal
+
+# Enter math mode - autoexpands
+
+snippet dm "Autoexpand display math" Ab
+\[$1.\] $0
+endsnippet
+
+snippet \[ "Autoexpand newline equation" Ab
+\[$1.\] $0
+endsnippet
+
+snippet $ "Autoexpand inline equation" Ai
+$$1.$ $0
+endsnippet
+
+### === IN MATH MODE ===
+
+# --- Fractions ---
+context math(context)
+snippet // "Fraction simple" Ai
+\frac{$1}{$2}$0
+endsnippet
+
+context math(context)
+snippet `((\d+)|(\d*)(\\)?([A-Za-z]+)((\^|_)(\{\d+\}|\d))*)/` "Fraction no ()" Ai
+\frac{``rv = m[1]``}{$1}$0
+endsnippet
+
+context math(context)
+priority 200
+snippet `(?<=\s)(\\mu|\\alpha|\\sigma|\\rho|\\beta|\\gamma|\\delta|\\zeta|\\eta|\\varepsilon|\\theta|\\iota|\\kappa|\\vartheta|\\lambda|\\nu|\\pi|\\rho|\\tau|\\upsilon|\\phi|\\chi|\\psi|\\omega|\\Gamma|\\Delta|\\Theta|\\Lambda|\\Xi|\\Pi|\\Sigma|\\Upsilon|\\Phi|\\Psi|\\Omega|[A-Za-z]{1,2})?(_[A-Za-z0-9]|_\{[^}]+\})?(\^[A-Za-z0-9]|\^\{[^}]+\})?(_[A-Za-z0-9]|_\{[^}]+\})?(\([^)]+\))(_[A-Za-z0-9]|_\{[^}]+\})?(\^[A-Za-z0-9]|\^\{[^}]+\})?(_[A-Za-z0-9]|_\{[^}]+\})?\/` "Fraction with ()" Aim
+\\frac{``rv = m.slice(1, m.length).join('')``}{$1}$0
+endsnippet
+
+# --- Brackets ---
+
+context math(context)
+snippet \{ "proper curly brackets" Ai
+\left\\{$1\right\\}$0
+endsnippet
+
+context math(context)
+snippet \( "proper brackets" Ai
+\left($1\right)$0
+endsnippet
+
+# --- Operations ---
+
+context math(context)
+snippet inv "inverse" Ai
+^{-1}
+endsnippet
+
+context math(context)
+snippet vert "Verticals of vector" i
+|$1|
+endsnippet
+
+context math(context)
+snippet times "convert to \times" Ai
+\times 
+endsnippet
+
+context math(context)
+snippet begin "initiates begin and end" Ai
+\begin{$1}
+$2
+\end{$1}$0
+endsnippet
+
+context math(context)
+snippet ast "asterisk" iAm
+^{*}
+endsnippet
+
+snippet != "does not equal" iA
+\neq 
+endsnippet
+
+context math(context)
+snippet sq "square root" iA
+\sqrt{$1}$0
+endsnippet
+
+context math(context)
+snippet _ "subscript" iA
+_{$1}$0
+endsnippet
+
+context math(context)
+snippet ^ "superscript" iA
+^{$1}$0
+endsnippet
+
+context math(context)
+snippet lra "\Leftrightarrow" iA
+\Leftrightarrow
+endsnippet
+
+context math(context)
+snippet int "integral" Ai
+\int_{$1}^{$2}$0
+endsnippet
+
+context math(context)
+snippet cases "cases" Ai
+\begin{cases}
+$1 \\
+$2
+\end{cases}$0
+endsnippet
+
+context math(context)
+snippet itext "text enviroment" Ai
+\intertext{$1}$0
+endsnippet
+
+context math(context)
+snippet text "text enviroment" Ai
+\text{$1}$0
+endsnippet
+
+context math(context) 
+snippet pmx "open pmatrix" Ai 
+\begin{pmatrix}
+$1
+\end{pmatrix}$0
+endsnippet
+
+
+# === UTILLITY ===
+
+snippet today "Gives you the current date!"
+``rv = new Date().toDateString()``
+endsnippet
+
+snippet filename "Current Filename"
+``rv = require('path').basename(path)``
+endsnippet
+
+snippet article "Setup std. article" 
+\documentclass[12pt]{article}
+\onehalfspacing
+
+\title{$1}
+\author{$2}
+\begin{document}
+\maketitle{}
+
+\section{Introduction}
+$0
+
+\end{document}
+endsnippet
+
+snippet green "Sets textcolor green" iA
+\textcolor{ForestGreen}{$1}$0
+endsnippet
+
+snippet bold "Sets bold" iA
+\textbf{$1}$0
+endsnippet
+
+snippet regards "best regards" iA 
+Best regards 
+
+$1
+endsnippet
