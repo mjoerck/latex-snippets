@@ -18,7 +18,7 @@ snippet \[ "Autoexpand newline equation" Ab
 endsnippet
 
 snippet $ "Autoexpand inline equation" Ai
-$$1.$ $0
+$$1$ $0
 endsnippet
 
 ### === IN MATH MODE ===
