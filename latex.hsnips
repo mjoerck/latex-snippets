@@ -52,6 +52,12 @@ snippet \( "proper brackets" Ai
 \left($1\right)$0
 endsnippet
 
+context math(context)
+snippet \< "inner product" Ai
+\langle($1\rangle)$0
+endsnippet
+
+
 # --- Operations ---
 
 context math(context)
