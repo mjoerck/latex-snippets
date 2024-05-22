@@ -54,7 +54,7 @@ endsnippet
 
 context math(context)
 snippet \< "inner product" Ai
-\langle($1\rangle)$0
+\langle $1\rangle$0
 endsnippet
 
 
