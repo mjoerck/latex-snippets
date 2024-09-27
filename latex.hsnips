@@ -10,11 +10,11 @@ endglobal
 # Enter math mode - autoexpands
 
 snippet dm "Autoexpand display math" Ab
-\[$1.\] $0
+\[$1\] $0
 endsnippet
 
 snippet \[ "Autoexpand newline equation" Ab
-\[$1.\] $0
+\[$1\] $0
 endsnippet
 
 snippet $ "Autoexpand inline equation" Ai
@@ -113,6 +113,11 @@ endsnippet
 
 context math(context)
 snippet int "integral" Ai
+\int $0
+endsnippet
+
+context math(context)
+snippet dint "integral" Ai
 \int_{$1}^{$2}$0
 endsnippet
 
