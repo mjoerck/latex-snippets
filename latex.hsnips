@@ -146,8 +146,14 @@ $1
 \end{pmatrix}$0
 endsnippet
 
-
 # === UTILLITY ===
+
+snippet cb "new snippet codeblock" i 
+\begin{lstlisting}[language=R]
+$1
+\end{lstlisting}$0
+endsnippet
+
 
 snippet today "Gives you the current date!"
 ``rv = new Date().toDateString()``
@@ -180,7 +186,7 @@ snippet bold "Sets bold" iA
 \textbf{$1}$0
 endsnippet
 
-snippet regards "best regards" iA 
+snippet regards "best regards" i 
 Best regards 
 
 $1
